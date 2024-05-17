@@ -30,7 +30,7 @@ export default function Home() {
             <a className={styles.card}>
               <h2></h2>
               <img
-                src={session.user.profile_image_url}
+                src={session?.user?.image}
                 alt="Profile"
                 className={styles.image}
               />
