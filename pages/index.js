@@ -8,6 +8,10 @@ export default function Home() {
   const onPress = async () => {
     await signIn("twitter");
   };
+  
+  const disconnect = async () => {
+    await signOut();
+  };
 
   return (
     <div className={styles.container}>
@@ -22,9 +26,14 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          <a onClick={onPress} className={styles.card}>
-            {!session ? <h3>Connect &rarr;</h3> : <h3>Disconnect &times;</h3>}
-          </a>
+          {!session ?
+            <a onClick={onPress} className={styles.card}>
+              <h3>Connect &rarr;</h3>
+            </a>
+            :
+            <a onClick={disconnect} className={styles.card}>
+              <h3>Disconnect &times;</h3>
+            </a>}
 
           {session && (
             <a className={styles.card}>
